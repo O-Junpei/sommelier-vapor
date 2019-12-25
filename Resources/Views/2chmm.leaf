@@ -1,0 +1,11 @@
+#set("title") { 2chmm }
+
+#set("body") {
+    <ul>
+    #for(site in sites) {
+        <li>#(site)</li>
+    }
+    </ul>
+}
+
+#embed("base")
