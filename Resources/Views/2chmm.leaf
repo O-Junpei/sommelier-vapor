@@ -2,8 +2,10 @@
 
 #set("body") {
     <ul>
-    #for(site in sites) {
-        <li>#(site)</li>
+    #for(blog in blogs) {
+        <li>
+          <a href="#(blog.url)">#(blog.name)</a>
+        </li>
     }
     </ul>
 }
