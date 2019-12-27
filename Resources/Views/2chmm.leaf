@@ -4,7 +4,12 @@
     <ul>
     #for(blog in blogs) {
         <li>
-          <a href="#(blog.url)">#(blog.name)</a>
+          <a href="#(blog.url)"><h1>#(blog.name)</h1></a>
+          <ul>
+            #for(article in blog.articles) {
+              <li><a href="#(article.url)">#(article.title)</h1></a></li>
+            }
+          </ul>
         </li>
     }
     </ul>
