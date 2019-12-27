@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:8.0.18
+    container_name: sommelier-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: sommelier
+      MYSQL_DATABASE: sommelier_local
+      MYSQL_USER: sommelier
+      MYSQL_PASSWORD: sommelier
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - 3306:3306
