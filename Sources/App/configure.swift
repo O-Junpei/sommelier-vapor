@@ -32,6 +32,11 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
         database: "sommelier_local",
         transport: MySQLTransportConfig.unverifiedTLS))
 
+    /// Configure migrations
+    var migrations = MigrationConfig()
+    migrations.add(model: Article.self, database: .mysql)
+    services.register(migrations)
+    
     /// Register the configured MySQL database to the database config.
     var databases = DatabasesConfig()
     databases.add(database: mysql, as: .mysql)
