@@ -1,24 +1,23 @@
 import FluentMySQL
 import Vapor
 
-struct Article: Codable, MySQLModel {
+struct Article: Decodable, MySQLModel {
     var id: Int?
     static let entity = "article"  // テーブル名
     
-    
-    var article_id: Int?
+    var articleId: Int?
     var title: String?
-    var article_url: String?
+    var articleUrl: String?
     var site_name: String?
-    var site_url: String?
+    var siteUrl: String?
     
-    
-//    enum CodingKeys: String, CodingKey {
-////      case name
-////      case age
-////      case friends
-//      case article_url = "article_url"  // ←　これ
-//    }
+    enum CodingKeys: String, CodingKey {
+        case articleId = "article_id"
+        case title = "title"
+        case articleUrl = "article_url"
+        case site_name = "site_name"
+        case siteUrl = "site_url"
+    }
 }
 
 extension Article: Content { }

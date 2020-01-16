@@ -8,8 +8,8 @@ final class ArticleController {
     }
     
     static func blogs(req: Request) throws -> Future<[Blog]> {
-        let cookpadArticles: Future<[Article]> = Article.query(on: req).filter(\.site_url == "https://techlife.cookpad.com") .all()
-        let classmethodArticles: Future<[Article]> = Article.query(on: req).filter(\.site_url == "https://dev.classmethod.jp") .all()
+        let cookpadArticles: Future<[Article]> = Article.query(on: req).filter(\.siteUrl == "https://techlife.cookpad.com") .all()
+        let classmethodArticles: Future<[Article]> = Article.query(on: req).filter(\.siteUrl == "https://dev.classmethod.jp") .all()
         
         let blogs = map(cookpadArticles, classmethodArticles) { (cookpadArticles, classmethodArticles) -> ([Blog]) in
             let cookpadBlog = Blog(name: "クックパッド開発者ブログ", url: "https://techlife.cookpad.com", articles: cookpadArticles)
