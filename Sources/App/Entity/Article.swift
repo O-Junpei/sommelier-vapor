@@ -11,7 +11,7 @@ struct Article: Decodable, MySQLModel {
     var site_name: String?
     var siteUrl: String?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case articleId = "article_id"
         case title = "title"
         case articleUrl = "article_url"
